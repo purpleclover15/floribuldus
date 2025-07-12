@@ -1,0 +1,9 @@
+.section-wrapper {
+  width: 95vw;
+  display: flex;
+  flex-direction: column;
+  height: 75vh;
+  margin-bottom: 1.5rem;
+}
+
+

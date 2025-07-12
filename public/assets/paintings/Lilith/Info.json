@@ -1,0 +1,14 @@
+{
+  "title": "Lilith",
+  "price": "€2,500",
+  "description": "‘Lilith’ is a powerful artwork by Flori Bulduș that captures the essence of a mythological figure symbolizing strength, willpower, and defiance. Dominated by an intense palette of fiery tones, the painting evokes Lilith’s strong character and determination—the woman who refuses to be constrained and continually expresses her desire for freedom.\n\nRich layers of red are masterfully applied to create a vibrant atmosphere, while vivid green accents introduce a hint of balance amid the passion and tension of the piece. This interplay of colors conveys the internal struggle between primal impulses and the need for reason.\n\nThe subtle details and chromatic energy make ‘Lilith’ a remarkable collector’s piece, exploring universal themes such as power, freedom, and the pursuit of self-knowledge.",
+  "availability": "Available",
+  "categories": ["New Arrivals", "Painting"],
+  "tag": "Flori Bulduș",
+  "share_links": ["Facebook", "LinkedIn", "Pinterest"],
+  "additional_info": {
+    "author": "Flori Bulduș",
+    "dimensions": "120 x 100 cm",
+    "technique": "acrylic on canvas"
+  }
+}

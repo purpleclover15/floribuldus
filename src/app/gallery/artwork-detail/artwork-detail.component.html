@@ -1,0 +1,53 @@
+<div class="modal-body row h-100" style="height: calc(100vh - 70px);">
+  <!-- Left side: Carousel -->
+  <div class="col-md-6 h-100 d-flex align-items-center justify-content-center" *ngIf="artworks.length > 0 && artworks[0].images">
+    <div 
+      id="carouselIndicators" 
+      class="carousel slide carousel-fade w-100 h-75" 
+      data-bs-ride="carousel" 
+      data-bs-wrap="true"
+      data-bs-interval="4000">
+
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li 
+          *ngFor="let image of artworks[0].images; let i = index" 
+          [attr.data-bs-target]="'#carouselIndicators'" 
+          [attr.data-bs-slide-to]="i" 
+          [class.active]="i === 0">
+        </li>
+      </ol>
+
+      <!-- Slides -->
+      <div class="carousel-inner h-100">
+        <div 
+          class="carousel-item h-100" 
+          *ngFor="let artworkimage of artworks[0].images; let i = index"
+          [class.active]="i === 0">
+          <img 
+            class="d-block w-100 h-100" 
+            loading="eager"
+            [src]="'assets/paintings/' + artworks[0].folder + '/' + artworkimage" 
+            alt="Artwork"
+            style="object-fit: cover;">
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselIndicators" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Right side: Text -->
+  <div class="col-md-6 h-100 d-flex flex-column justify-content-center px-4 text-start">
+    <h1>{{ artworks[0]?.title ?? 'No title available.' }}</h1>
+    <p [style.white-space]="'pre-line'">{{ artworks[0]?.info.description ?? 'No description available.' }}</p>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+{
+  "title": "Icarus II",
+  "price": "€2,500",
+  "description": "This work by Flori Bulduș captures the harmony and strong contrast between the incandescent warmth of the sky and the cool tones of the earth. Inspired by the myth of Icarus, the painting conveys a profound message of evolution and transformation. As the wax of Icarus’s wings melts under the scorching rays of the sun, the labyrinth becomes a metaphor for the journey from stagnation to freedom.\n\nThe composition is dominated by warm colors, carefully balanced to reflect the intense atmosphere of the sky. The vibrant reds and oranges in the upper part contrast with the lower portion, where green and accents of violet and ochre suggest the cold, calm earth. This interplay of contrasts amplifies the tension between the celestial ideal and earthly reality, evoking the inner struggle for transformation and liberation.",
+  "availability": "Available",
+  "categories": ["New Arrivals", "Painting"],
+  "tag": "Flori Bulduș",
+  "share_links": ["Facebook", "LinkedIn", "Pinterest"],
+  "additional_info": {
+    "author": "Flori Bulduș",
+    "dimensions": "120 x 100 cm",
+    "technique": "acrylic on canvas"
+  }
+}

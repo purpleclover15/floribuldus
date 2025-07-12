@@ -1,0 +1,70 @@
+@font-face {
+  font-family: 'CustomFont';
+  src: url('/assets/fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  background-color: #121212;
+  font-family: 'CustomFont', sans-serif;
+  color: #c6c6c6;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+html {
+  scroll-padding-top: 100px; /* Try increasing this value */
+}
+
+.nav-link,
+.navbar-brand {
+  font-weight: bold;
+  color: #c6c6c6 !important;
+  padding: 0.5rem 1rem;
+}
+
+.nav-link {
+  font-size: 2.2rem;
+}
+
+.navbar-brand {
+  font-size: 3.0rem;
+}
+
+.navbar-brand:hover,
+.nav-link:hover,
+.navbar-brand.active,
+.nav-link.active {
+  color: white !important;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  animation: fadeInUp 1s ease-out;
+  font-weight: 600;
+  color: white !important;
+}
+
+h1 {
+  animation: fadeInUp 1s ease-out;
+}
+
+p {
+  animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
