@@ -1,41 +1,49 @@
-<nav class="navbar" w-100 px-0 [class.navbar-hidden]="!navbarVisible">
-  <div class="container-fluid d-flex align-items-center position-relative">
+<nav class="navbar navbar-expand-md" [class.navbar-hidden]="!navbarVisible" style="padding-right: 3rem;">
+  <div class="container-fluid">
+    <!-- Brand -->
+    <a class="navbar-brand" [routerLink]="['/home']" [queryParams]="{ scrollTo: 'gallery' }" style="color: white !important">
+      Flori Bulduș Art
+    </a>
 
-    <!-- Brand on the left (1/3) -->
-    <div class="d-flex align-items-center" style="width: 33.3333%;">
-      <a class="nav-link" 
-        [routerLink]="['/home']" 
-        [queryParams]="{ scrollTo: 'gallery' }" 
-        style="color: white !important">
-        Flori Bulduș Art
-      </a>
+    <!-- Toggler for small screens -->
+    <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+      <ul class="navbar-nav text-center">
+        <li class="nav-item mx-3">
+          <a class="nav-link"
+             [routerLink]="['/home']"
+             routerLinkActive="active"
+             [queryParams]="{ scrollTo: 'gallery' }"
+             (click)="forceScroll('gallery')">
+             Gallery
+          </a>
+        </li>
+        <li class="nav-item mx-3">
+          <a class="nav-link"
+             [routerLink]="['/home']"
+             routerLinkActive="active"
+             [queryParams]="{ scrollTo: 'about' }"
+             (click)="forceScroll('about')">
+             About
+          </a>
+        </li>
+        <li class="nav-item mx-3">
+          <a class="nav-link"
+             [routerLink]="['/home']"
+             routerLinkActive="active"
+             [queryParams]="{ scrollTo: 'contact' }"
+             (click)="forceScroll('contact')">
+             Contact
+          </a>
+        </li>
+      </ul>
     </div>
-
-    <!-- Centered navigation links -->
-    <ul class="navbar-nav d-flex flex-row position-absolute start-50 top-50 translate-middle">
-      <li class="nav-item mx-3">
-        <a class="nav-link"
-          [routerLink]="['/home']"
-          [queryParams]="{ scrollTo: 'gallery' }"
-          (click)="forceScroll('gallery')"
-          routerLinkActive="active">Gallery</a>
-      </li>
-      <li class="nav-item mx-3">
-        <a class="nav-link"
-          [routerLink]="['/home']"
-          [queryParams]="{ scrollTo: 'about' }"
-          (click)="forceScroll('about')"
-          routerLinkActive="active">About</a>
-      </li>
-      <li class="nav-item mx-3">
-        <a class="nav-link"
-          [routerLink]="['/home']"
-          [queryParams]="{ scrollTo: 'contact' }"
-          (click)="forceScroll('contact')"
-          routerLinkActive="active">Contact</a> 
-      </li>
-    </ul>
-
   </div>
 </nav>
-<router-outlet></router-outlet>
+<main class="main-content">
+  <router-outlet></router-outlet>
+</main>

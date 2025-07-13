@@ -12,3 +12,7 @@
   background-color: #121212;
   transition: transform 0.3s ease-in-out;
 }
+
+.main-content {
+  padding-top: 100px; /* Match actual navbar height */
+}

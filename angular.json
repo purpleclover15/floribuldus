@@ -25,6 +25,11 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "bootstrap.bundle.min.js.map",
+                "input": "node_modules/bootstrap/dist/js",
+                "output": "assets/js"
               }
             ],
             "styles": [

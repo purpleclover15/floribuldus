@@ -12,7 +12,7 @@
     "info": {
       "title": "Anemone in the Abyss",
       "price": "€600",
-      "description": "The painting ‘Anemone in the Abyss’ by Flori Bulduș is part of the ‘Harmony of the Sea’ series and is an underwater exploration of the harmony and diversity of marine life. This vibrant and colorful work features anemones and other sea creatures coexisting in perfect harmony in the depths of the sea. With various shades of blue and green, this painting invites you to explore the mysterious world of the ocean and discover its unique beauty. ‘Anemone in the Abyss’ is available exclusively on Moosa, your Romanian art gallery.",
+      "description": "The painting ‘Anemone in the Abyss’ by Flori Bulduș is part of the ‘Harmony of the Sea’\n series and is an underwater exploration of the harmony and diversity of marine life.\n\nThis vibrant and colorful work features anemones and\nother sea creatures coexisting in perfect harmony in the depths of the sea.\n\nWith various shades of blue and green, this painting invites you\nto explore the mysterious world of the ocean and discover its unique beauty.",
       "availability": "Available",
       "categories": [
         "New Arrivals",
@@ -71,7 +71,7 @@
     "info": {
       "title": "Electra",
       "price": "€2,500",
-      "description": "‘Electra’ is a painting by Flori Bulduș, featuring the goddess of clouds and storms as its central figure. This artwork captures the mysterious atmosphere of a tumultuous sky, masterfully rendered through the strong contrast between warm and cool tones. The sophisticated interplay of colors enhances the drama of the scene, highlighting Electra’s strength and elegance.\n\nThe painting radiates a captivating energy, inviting the viewer to explore their own emotions and inner powers. By depicting Electra amidst the storm, the artist suggests that true strength is revealed when we embrace our inner challenges and chaos. The electrifying atmosphere of the piece encourages introspection and self-discovery, emphasizing the idea that within chaos lies authenticity and personal power.",
+      "description": "‘Electra’ is a painting by Flori Bulduș, featuring the goddess of\nclouds and storms as its central figure.\nThis artwork captures the mysterious atmosphere of a tumultuous sky,\nmasterfully rendered through the strong contrast between warm and cool tones.\n\nThe sophisticated interplay of colors enhances the drama of the scene,\nhighlighting Electra’s strength and elegance.\n\nThe painting radiates a captivating energy,\ninviting the viewer to explore their own emotions and inner powers.\nBy depicting Electra amidst the storm, the artist suggests\nthat true strength is revealed when we embrace our inner challenges and chaos.\n\nThe electrifying atmosphere of the piece encourages introspection and self-discovery,\nemphasizing the idea that within chaos lies authenticity and personal power.",
       "availability": "Available",
       "categories": [
         "New Arrivals",
@@ -99,7 +99,26 @@
       "Moosa_Esența vieții_Flori Buldus_detaliu 2.jpg",
       "Moosa_Esența vieții_Flori Buldus_maini.jpg"
     ],
-    "info": null
+    "info": {
+      "title": "Esența vieții",
+      "price": "€800",
+      "description": "‘The Essence of Life’ captures the delicate tension between creation and decay in a single suspended form.\nA large, organic droplet hangs luminous against a backdrop of vivid cerulean and pale neutrals, as if caught in the moment of becoming or dissolving.\n\nRich textures of layered oil paint create shimmering transitions—from translucent blues and aquamarines\nto warm golden veins—suggesting both the fragility and resilience of life itself.\nDark rivulets drip from the base, grounding the ethereal form in a visceral reminder of impermanence.\n\nThis evocative composition invites contemplation of transformation, renewal, and the beauty found in imperfection.",
+      "availability": "Available",
+      "categories": [
+        "Painting"
+      ],
+      "tag": "Flori Bulduș",
+      "share_links": [
+        "Facebook",
+        "LinkedIn",
+        "Pinterest"
+      ],
+      "additional_info": {
+        "author": "Flori Bulduș",
+        "dimensions": "80 x 100 cm",
+        "technique": "oil and acrylic on canvas"
+      }
+    }
   },
   {
     "title": "Esențe",
@@ -145,7 +164,7 @@
     "info": {
       "title": "Icarus",
       "price": "€800",
-      "description": "Encapsulating the passion and undeniable talent of Romanian artist Flori Bulduș, ‘Icarus’ is one of the masterpieces of the ‘Sap of Life’ series.\n\nThe painting is a vibrant expression of the timeless legend of Icarus, masterfully captured by the gifted painter Flori Bulduș. Inspired by the myth of Icarus—who, driven by the desire for ascension and freedom, flew too close to the sun, melting the wax on his wings—this piece blends warm colors with rich textures. With every glance, ‘Icarus’ reveals new details. The rich color palette ranges from golden tones to deep shades of copper, reflecting the heat of the sun and the melting wax. A subtle yet essential detail is the wing falling toward the earth, provoking the viewer to delve deeper.\n\nThis piece is ideal for art collectors and mythology enthusiasts alike. By purchasing ‘Icarus’ from our online art gallery, Moosa, you bring a touch of classical mythology and Romanian art into your space.\n\nEach work in the ‘Sap of Life’ series tells a unique story, and ‘Icarus’ is no exception. Take advantage of the opportunity to own this piece, now available exclusively at Moosa.",
+      "description": "Encapsulating the passion and undeniable talent of Romanian artist Flori Bulduș, ‘Icarus’ is one of the masterpieces of the ‘Sap of Life’ series.\n\nThe painting is a vibrant expression of the timeless legend of Icarus, masterfully captured by the gifted painter Flori Bulduș. Inspired by the myth of Icarus—who, driven by the desire for ascension and freedom, flew too close to the sun, melting the wax on his wings—this piece blends warm colors with rich textures.\n\nWith every glance, ‘Icarus’ reveals new details. The rich color palette ranges from golden tones to deep shades of copper, reflecting the heat of the sun and the melting wax. A subtle yet essential detail is the wing falling toward the earth, provoking the viewer to delve deeper.\n\nThis piece is ideal for art collectors and mythology enthusiasts alike. By owning ‘Icarus’ you bring a touch of classical mythology and Romanian art into your space.\n\nEach work in the ‘Sap of Life’ series tells a unique story, and ‘Icarus’ is no exception. Take advantage of the opportunity to own this piece.",
       "availability": "Available",
       "categories": [
         "New Arrivals",
@@ -175,7 +194,7 @@
     "info": {
       "title": "Icarus II",
       "price": "€2,500",
-      "description": "This work by Flori Bulduș captures the harmony and strong contrast between the incandescent warmth of the sky and the cool tones of the earth. Inspired by the myth of Icarus, the painting conveys a profound message of evolution and transformation. As the wax of Icarus’s wings melts under the scorching rays of the sun, the labyrinth becomes a metaphor for the journey from stagnation to freedom.\n\nThe composition is dominated by warm colors, carefully balanced to reflect the intense atmosphere of the sky. The vibrant reds and oranges in the upper part contrast with the lower portion, where green and accents of violet and ochre suggest the cold, calm earth. This interplay of contrasts amplifies the tension between the celestial ideal and earthly reality, evoking the inner struggle for transformation and liberation.",
+      "description": "This work by Flori Bulduș captures the harmony and\nstrong contrast between the incandescent warmth of the sky\nand the cool tones of the earth.\n\nInspired by the myth of Icarus, the painting conveys a\nprofound message of evolution and transformation.\n\nAs the wax of Icarus’s wings melts under the scorching rays of the sun,\nthe labyrinth becomes a metaphor for the journey from stagnation to freedom.\nThe composition is dominated by warm colors, carefully balanced\nto reflect the intense atmosphere of the sky.\n\nThe vibrant reds and oranges in the upper part contrast with the lower portion,\nwhere green and accents of violet and ochre suggest the cold,calm earth.\nThis interplay of contrasts amplifies the tension between \nthe celestial ideal and earthly reality,\nevoking the inner struggle for transformation and liberation.",
       "availability": "Available",
       "categories": [
         "New Arrivals",
@@ -237,7 +256,7 @@
     "info": {
       "title": "Underwater World",
       "price": "€600",
-      "description": "‘Underwater World’ by Flori Bulduș is a captivating journey into the ocean’s depths, part of the ‘Harmony of the Sea’ series. With remarkable artistic mastery, Flori Bulduș captures the graceful movement of seaweed as it dances around marine life, gently touching fish, starfish, and other underwater species. This vibrant and colorful piece invites you to explore an underwater universe rich in harmony and diversity. ‘Underwater World’ is a unique piece, available exclusively on Moosa—your Romanian art gallery—bringing the magic of the sea’s depths directly into your home.",
+      "description": "‘Underwater World’ by Flori Bulduș is a captivating journey\ninto the ocean’s depths, part of the ‘Harmony of the Sea’ series.\n\nWith remarkable artistic mastery, Flori Bulduș captures the \ngraceful movement of seaweed as it dances around marine life,\ngently touching fish, starfish, and other underwater species.\n\nThis vibrant and colorful piece invites you to explore\nan underwater universe rich in harmony and diversity.\n\n‘Underwater World’ is a unique piece, bringing the magic of the\nsea’s depths directly into your home.",
       "availability": "Available",
       "categories": [
         "New Arrivals",

@@ -1,35 +1,38 @@
 <div class="modal-body row h-100" style="height: calc(100vh - 70px);">
   <!-- Left side: Carousel -->
-  <div class="col-md-6 h-100 d-flex align-items-center justify-content-center" *ngIf="artworks.length > 0 && artworks[0].images">
-    <div 
-      id="carouselIndicators" 
-      class="carousel slide carousel-fade w-100 h-75" 
-      data-bs-ride="carousel" 
+  <div
+    class="col-md-6 h-100 d-flex align-items-center justify-content-center"
+    *ngIf="artworks.length > 0 && artworks[0].images">
+    <div
+      id="carouselIndicators"
+      class="carousel slide carousel-fade w-100"
+      data-bs-ride="carousel"
       data-bs-wrap="true"
       data-bs-interval="4000">
 
       <!-- Indicators -->
       <ol class="carousel-indicators">
-        <li 
-          *ngFor="let image of artworks[0].images; let i = index" 
-          [attr.data-bs-target]="'#carouselIndicators'" 
-          [attr.data-bs-slide-to]="i" 
+        <li
+          *ngFor="let image of artworks[0].images; let i = index"
+          [attr.data-bs-target]="'#carouselIndicators'"
+          [attr.data-bs-slide-to]="i"
           [class.active]="i === 0">
         </li>
       </ol>
 
       <!-- Slides -->
-      <div class="carousel-inner h-100">
-        <div 
-          class="carousel-item h-100" 
+      <div class="carousel-inner" style="height: 500px;">
+        <div
+          class="carousel-item h-100"
           *ngFor="let artworkimage of artworks[0].images; let i = index"
           [class.active]="i === 0">
-          <img 
-            class="d-block w-100 h-100" 
+          <img
+            class="d-block w-100 h-100"
             loading="eager"
-            [src]="'assets/paintings/' + artworks[0].folder + '/' + artworkimage" 
+            [src]="'assets/paintings/' + artworks[0].folder + '/' + artworkimage"
             alt="Artwork"
-            style="object-fit: cover;">
+            style="object-fit: scale-down; cursor: zoom-in;"
+            (click)="showFullImage('assets/paintings/' + artworks[0].folder + '/' + artworkimage)">
         </div>
       </div>
 
@@ -48,6 +51,26 @@
   <!-- Right side: Text -->
   <div class="col-md-6 h-100 d-flex flex-column justify-content-center px-4 text-start">
     <h1>{{ artworks[0]?.title ?? 'No title available.' }}</h1>
-    <p [style.white-space]="'pre-line'">{{ artworks[0]?.info.description ?? 'No description available.' }}</p>
+    <p class="py-2" [style.white-space]="'pre-line'">{{ artworks[0]?.info.description ?? 'No description available.' }}</p>
+  </div>
+</div>
+
+<!-- Full Image Modal -->
+<div
+  class="modal fade"
+  id="fullImageModal"
+  tabindex="-1"
+  aria-labelledby="fullImageModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content bg-dark border-0">
+      <div class="modal-body p-0">
+        <img
+          id="fullImageModalImg"
+          src=""
+          alt="Full artwork"
+          class="img-fluid w-100">
+      </div>
+    </div>
   </div>
 </div>

@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { ArtworkService } from '../../services/artwork.service';
 import { CommonModule } from '@angular/common';
 
+declare var bootstrap: any;
+
 @Component({
   selector: 'app-artwork-detail',
   standalone: true,
@@ -13,6 +15,7 @@ import { CommonModule } from '@angular/common';
 export class ArtworkDetailComponent {
   folder: string | null = null;
   artworks: any[] = [];
+
 
   constructor(
     private route: ActivatedRoute,
@@ -33,5 +36,13 @@ export class ArtworkDetailComponent {
       }
       this.cdr.detectChanges();
     });
+  }
+
+
+  showFullImage(imageUrl: string) {
+    const modalImage = document.getElementById('fullImageModalImg') as HTMLImageElement;
+    modalImage.src = imageUrl;
+    const modal = new bootstrap.Modal(document.getElementById('fullImageModal')!);
+    modal.show();
   }
 }
