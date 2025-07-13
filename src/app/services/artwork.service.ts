@@ -7,6 +7,6 @@ export class ArtworkService {
   constructor(private http: HttpClient) {}
 
   getArtworks() {
-    return this.http.get<any[]>('/assets/data.json');
+    return this.http.get<any[]>('assets/data.json');
   }
 }
