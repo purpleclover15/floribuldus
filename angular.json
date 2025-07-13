@@ -16,7 +16,7 @@
             "outputPath": "dist/floribuldus",
             "baseHref": "/floribuldus/",
             "index": "src/index.html",
-            "browser": "src/main.ts",
+            "main": "src/main.ts",
             "polyfills": [
               "zone.js"
             ],
@@ -24,7 +24,8 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "public",
+                "output": "/"
               },
               {
                 "glob": "bootstrap.bundle.min.js.map",
@@ -42,19 +43,19 @@
           },
           "configurations": {
             "production": {
+              "outputHashing": "all",
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
+                  "maximumWarning": "4kb",
+                  "maximumError": "8kb"
                 }
-              ],
-              "outputHashing": "all"
+              ]
             },
             "development": {
               "optimization": false,
@@ -66,18 +67,20 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {},
           "configurations": {
             "production": {
-              "buildTarget": "FloriBuldusArt:build:production"
+              "browserTarget": "FloriBuldusArt:build:production"
             },
             "development": {
-              "buildTarget": "FloriBuldusArt:build:development"
+              "browserTarget": "FloriBuldusArt:build:development"
             }
           },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n"
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {}
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
@@ -90,7 +93,8 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "public",
+                "output": "/"
               }
             ],
             "styles": [
