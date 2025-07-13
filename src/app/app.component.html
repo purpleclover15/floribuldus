@@ -18,6 +18,7 @@
              [routerLink]="['/home']"
              routerLinkActive="active"
              [queryParams]="{ scrollTo: 'gallery' }"
+             [routerLinkActiveOptions]="{ exact: true }"
              (click)="forceScroll('gallery')">
              Gallery
           </a>
@@ -27,6 +28,7 @@
              [routerLink]="['/home']"
              routerLinkActive="active"
              [queryParams]="{ scrollTo: 'about' }"
+             [routerLinkActiveOptions]="{ exact: true }"
              (click)="forceScroll('about')">
              About
           </a>
@@ -36,6 +38,7 @@
              [routerLink]="['/home']"
              routerLinkActive="active"
              [queryParams]="{ scrollTo: 'contact' }"
+             [routerLinkActiveOptions]="{ exact: true }"
              (click)="forceScroll('contact')">
              Contact
           </a>
