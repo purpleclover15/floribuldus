@@ -1,19 +1,16 @@
 import { Component, HostListener } from '@angular/core';
-import { Router, RouterLink, RouterLinkActive, RouterModule, RouterOutlet } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterLink, RouterOutlet, RouterModule],
+  standalone: true,
+  imports: [RouterModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'FloriBuldusArt';
-
   lastScrollTop = 0;
   navbarVisible = true;
-
-  constructor(private router: Router) {}
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
@@ -24,22 +21,23 @@ export class AppComponent {
     const upThreshold = 10;
 
     if (delta > downThreshold) {
-      // Scrolling down fast enough
       this.navbarVisible = false;
     } else if (delta < -upThreshold) {
-      // Scrolling up fast enough
       this.navbarVisible = true;
     }
 
     this.lastScrollTop = st <= 0 ? 0 : st;
   }
 
-  forceScroll(section: string) {
-  const currentUrl = this.router.url;
-  if (currentUrl.includes('/home')) {
-    // Still on home, manually dispatch a scroll event
-    const event = new CustomEvent('scrollToSection', { detail: section });
-    window.dispatchEvent(event);
+  forceScroll(target: string) {
+    // Ensure mobile menu closes if open
+    const navCollapse = document.getElementById('navbarNav');
+    if (navCollapse && navCollapse.classList.contains('show')) {
+      navCollapse.classList.remove('show');
+    }
+    setTimeout(() => {
+      const el = document.getElementById(target + 'Section');
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
   }
-}
 }

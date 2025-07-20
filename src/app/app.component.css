@@ -1,18 +1,33 @@
-.navbar-hidden {
-  transform: translateY(-100%);
-  transition: transform 0.3s ease-in-out;
+.carousel-inner {
+  height: 500px;        /* Large on desktop */
+  background: #191919;  /* Subtle dark background */
+  border-radius: 16px;
+  box-shadow: 0 4px 18px #0004;
+  overflow: hidden;
 }
 
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
+.carousel-item,
+.carousel-item img {
+  height: 100%;
+}
+
+.carousel-item img {
+  object-fit: contain;
   width: 100%;
-  z-index: 1000;
-  background-color: #121212;
-  transition: transform 0.3s ease-in-out;
+  background: #191919;
 }
 
-.main-content {
-  padding-top: 100px; /* Match actual navbar height */
+/* Make carousel even bigger on huge screens */
+@media (min-width: 1400px) {
+  .carousel-inner {
+    height: 650px;
+  }
+}
+
+/* Mobile: taller images, more visibility */
+@media (max-width: 576px) {
+  .carousel-inner {
+    height: 280px !important;
+    border-radius: 10px;
+  }
 }

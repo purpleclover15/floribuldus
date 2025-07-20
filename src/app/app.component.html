@@ -1,52 +1,83 @@
-<nav class="navbar navbar-expand-md" [class.navbar-hidden]="!navbarVisible" style="padding-right: 3rem;">
-  <div class="container-fluid">
-    <!-- Brand -->
-    <a class="navbar-brand" [routerLink]="['/home']" [queryParams]="{ scrollTo: 'gallery' }" style="color: white !important">
-      Flori Bulduș Art
-    </a>
-
-    <!-- Toggler for small screens -->
-    <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-      <ul class="navbar-nav text-center">
-        <li class="nav-item mx-3">
-          <a class="nav-link"
-             [routerLink]="['/home']"
-             routerLinkActive="active"
-             [queryParams]="{ scrollTo: 'gallery' }"
-             [routerLinkActiveOptions]="{ exact: true }"
-             (click)="forceScroll('gallery')">
-             Gallery
-          </a>
-        </li>
-        <li class="nav-item mx-3">
-          <a class="nav-link"
-             [routerLink]="['/home']"
-             routerLinkActive="active"
-             [queryParams]="{ scrollTo: 'about' }"
-             [routerLinkActiveOptions]="{ exact: true }"
-             (click)="forceScroll('about')">
-             About
-          </a>
-        </li>
-        <li class="nav-item mx-3">
-          <a class="nav-link"
-             [routerLink]="['/home']"
-             routerLinkActive="active"
-             [queryParams]="{ scrollTo: 'contact' }"
-             [routerLinkActiveOptions]="{ exact: true }"
-             (click)="forceScroll('contact')">
-             Contact
-          </a>
-        </li>
-      </ul>
+<!-- Full Image Modal (Bootstrap, with navigation arrows) -->
+<div class="modal fade" id="fullImageModal" tabindex="-1" aria-labelledby="fullImageModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-transparent border-0 shadow-none position-relative">
+      <button
+        type="button"
+        class="btn btn-dark position-absolute top-50 start-0 translate-middle-y z-3"
+        style="opacity:0.7; border-radius:50%; width:40px; height:40px;"
+        (click)="showPrevFullImage(); $event.stopPropagation();">
+        &#8249;
+      </button>
+      <button
+        type="button"
+        class="btn btn-dark position-absolute top-50 end-0 translate-middle-y z-3"
+        style="opacity:0.7; border-radius:50%; width:40px; height:40px;"
+        (click)="showNextFullImage(); $event.stopPropagation();">
+        &#8250;
+      </button>
+      <div class="modal-body d-flex justify-content-center align-items-center p-0" style="background: transparent;">
+        <img id="fullImageModalImg"
+             [src]="fullscreenImage"
+             alt="Artwork"
+             class="img-fluid rounded shadow-lg"
+             style="max-width: 95vw; max-height: 95vh; background: #222;">
+      </div>
     </div>
   </div>
-</nav>
-<main class="main-content">
-  <router-outlet></router-outlet>
-</main>
+</div>
+
+<div class="modal-body row h-100 px-2 px-md-4 py-3" style="height: calc(100vh - 70px);">
+  <!-- Left side: Carousel -->
+  <div
+    class="col-12 col-md-6 d-flex align-items-center justify-content-center mb-4 mb-md-0 carousel-col">
+    <div
+      id="carouselIndicators"
+      class="carousel slide carousel-fade carousel-container w-100"
+      data-bs-ride="carousel"
+      data-bs-wrap="true"
+      data-bs-interval="4000">
+
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li
+          *ngFor="let image of artworks[0].images; let i = index"
+          [attr.data-bs-target]="'#carouselIndicators'"
+          [attr.data-bs-slide-to]="i"
+          [class.active]="i === 0">
+        </li>
+      </ol>
+
+      <!-- Slides -->
+      <div class="carousel-inner">
+        <div
+          class="carousel-item"
+          *ngFor="let artworkimage of artworks[0].images; let i = index"
+          [class.active]="i === 0">
+          <img
+            class="carousel-img"
+            loading="eager"
+            [src]="'assets/paintings/' + artworks[0].folder + '/' + artworkimage"
+            alt="Artwork"
+            (click)="showFullImage('assets/paintings/' + artworks[0].folder + '/' + artworkimage)">
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselIndicators" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Right side: Text -->
+  <div class="col-12 col-md-6 h-100 d-flex flex-column justify-content-center px-1 px-md-4 text-start">
+    <h1>{{ artworks[0]?.title ?? 'No title available.' }}</h1>
+    <p class="py-2" [style.white-space]="'pre-line'">{{ artworks[0]?.info.description ?? 'No description available.' }}</p>
+  </div>
+</div>
