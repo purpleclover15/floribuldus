@@ -16,3 +16,9 @@
 li::marker{
   font-size:0;
 }
+
+@media (max-width: 576px) {
+  .carousel-inner {
+    height: 200px !important;
+  }
+}

@@ -1,7 +1,7 @@
-<div class="modal-body row h-100" style="height: calc(100vh - 70px);">
+<div class="modal-body row h-100 px-2 px-md-4 py-3" style="height: calc(100vh - 70px);">
   <!-- Left side: Carousel -->
   <div
-    class="col-md-6 h-100 d-flex align-items-center justify-content-center"
+    class="col-12 col-md-6 h-100 d-flex align-items-center justify-content-center mb-4 mb-md-0"
     *ngIf="artworks.length > 0 && artworks[0].images">
     <div
       id="carouselIndicators"
@@ -21,7 +21,7 @@
       </ol>
 
       <!-- Slides -->
-      <div class="carousel-inner" style="height: 500px;">
+      <div class="carousel-inner" style="height: 350px;">
         <div
           class="carousel-item h-100"
           *ngFor="let artworkimage of artworks[0].images; let i = index"
@@ -49,28 +49,8 @@
   </div>
 
   <!-- Right side: Text -->
-  <div class="col-md-6 h-100 d-flex flex-column justify-content-center px-4 text-start">
+  <div class="col-12 col-md-6 h-100 d-flex flex-column justify-content-center px-1 px-md-4 text-start">
     <h1>{{ artworks[0]?.title ?? 'No title available.' }}</h1>
     <p class="py-2" [style.white-space]="'pre-line'">{{ artworks[0]?.info.description ?? 'No description available.' }}</p>
-  </div>
-</div>
-
-<!-- Full Image Modal -->
-<div
-  class="modal fade"
-  id="fullImageModal"
-  tabindex="-1"
-  aria-labelledby="fullImageModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-xl">
-    <div class="modal-content bg-dark border-0">
-      <div class="modal-body p-0">
-        <img
-          id="fullImageModalImg"
-          src=""
-          alt="Full artwork"
-          class="img-fluid w-100">
-      </div>
-    </div>
   </div>
 </div>
