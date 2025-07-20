@@ -21,8 +21,10 @@ export class AppComponent {
     const upThreshold = 10;
 
     if (delta > downThreshold) {
+      // Scrolling down fast enough
       this.navbarVisible = false;
     } else if (delta < -upThreshold) {
+      // Scrolling up fast enough
       this.navbarVisible = true;
     }
 

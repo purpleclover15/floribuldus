@@ -31,3 +31,27 @@
     border-radius: 10px;
   }
 }
+
+.navbar-hidden {
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #121212;
+  transition: transform 0.3s ease-in-out;
+}
+
+.main-content {
+  padding-top: 80px;
+}
+@media (max-width: 576px) {
+  .main-content {
+    padding-top: 46px;
+  }
+}

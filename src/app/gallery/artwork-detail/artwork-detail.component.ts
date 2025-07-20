@@ -15,7 +15,7 @@ declare var bootstrap: any;
 export class ArtworkDetailComponent {
   folder: string | null = null;
   artworks: any[] = [];
-
+  fullImageUrl: string | null = null; // <-- add this for modal image
 
   constructor(
     private route: ActivatedRoute,
@@ -38,11 +38,21 @@ export class ArtworkDetailComponent {
     });
   }
 
-
   showFullImage(imageUrl: string) {
-    const modalImage = document.getElementById('fullImageModalImg') as HTMLImageElement;
-    modalImage.src = imageUrl;
-    const modal = new bootstrap.Modal(document.getElementById('fullImageModal')!);
-    modal.show();
+    this.fullImageUrl = imageUrl;
+    this.cdr.detectChanges(); // ensure Angular updates modal
+    const modalElement = document.getElementById('fullImageModal');
+    if (modalElement) {
+      const modal = bootstrap.Modal.getOrCreateInstance(modalElement);
+      modal.show();
+    }
+  }
+
+  closeFullImage() {
+    const modalElement = document.getElementById('fullImageModal');
+    if (modalElement) {
+      const modal = bootstrap.Modal.getInstance(modalElement);
+      modal?.hide();
+    }
   }
 }

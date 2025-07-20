@@ -1,48 +1,28 @@
-/* Fill the column and viewport for a truly big carousel */
-.carousel-col, .carousel-container, .carousel-inner {
-  height: 80vh;     /* 80% of viewport height */
-  min-height: 600px;
-  max-height: 90vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .carousel-inner {
-  width: 100%;
-  background: #191919;
-  border-radius: 20px;
-  box-shadow: 0 4px 18px #0004;
-  overflow: hidden;
+  height: 500px;
 }
 
-.carousel-item, .carousel-img {
-  height: 100%;
-}
-
-.carousel-img {
+.carousel-item img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  background: #191919;
-  border-radius: 18px;
-  transition: box-shadow 0.2s;
-  cursor: zoom-in;
+  display: block;
+  transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+  opacity: 1;
+  /* background removed */
 }
 
-/* For huge screens, make it even bigger */
-@media (min-width: 1600px) {
-  .carousel-col, .carousel-container, .carousel-inner {
-    min-height: 900px;
-    height: 88vh;
-  }
+.carousel-item.active img {
+  transform: scale(1.05);
+  opacity: 1;
 }
 
-/* On mobile, use smaller but still prominent height */
-@media (max-width: 767.98px) {
-  .carousel-col, .carousel-container, .carousel-inner {
-    min-height: 220px !important;
-    height: 220px !important;
-    border-radius: 12px;
+li::marker {
+  font-size: 0;
+}
+
+@media (max-width: 576px) {
+  .carousel-inner {
+    height: 200px !important;
   }
 }
