@@ -20,7 +20,6 @@ import { Router } from '@angular/router';
 })
 export class GalleryComponent implements AfterViewInit {
   artworks = [
-    // Example data structure
     { folder: 'art1', images: ['1.jpg'], title: 'Art 1' },
     { folder: 'art2', images: ['2.jpg'], title: 'Art 2' },
     { folder: 'art3', images: ['3.jpg'], title: 'Art 3' }
@@ -29,29 +28,41 @@ export class GalleryComponent implements AfterViewInit {
   isHoveringMainImage = false;
   showTitle = false;
 
+  loadedImages = 0;
+  totalImages = 0;
+
   @ViewChild('scrollContainer', { static: true }) scrollContainer!: ElementRef<HTMLDivElement>;
   @ViewChildren('artImage') artImages!: QueryList<ElementRef<HTMLImageElement>>;
 
   constructor(
     private artworkService: ArtworkService,
     private cdr: ChangeDetectorRef,
-    private router: Router // Add this
+    private router: Router
   ) {}
 
-ngAfterViewInit(): void {
-  this.artworkService.getArtworks().subscribe((data) => {
-    this.artworks = this.shuffleArray(data);
-    this.activeIndex = 1;
-    this.cdr.detectChanges();
-    setTimeout(() => {
-      this.centerActiveImage();
+  ngAfterViewInit(): void {
+    this.artworkService.getArtworks().subscribe((data) => {
+      this.artworks = this.shuffleArray(data);
+      this.activeIndex = 1;
+      this.loadedImages = 0;
+      this.totalImages = this.artworks.length + 2; // Main + prepend + append
+      this.cdr.detectChanges();
+    });
+  }
+
+  onImageLoad() {
+    this.loadedImages++;
+    if (this.loadedImages === this.totalImages) {
+      // All images loaded
       setTimeout(() => {
-        this.showTitle = true; // Show title after initial centering and animation
-        this.centerActiveImage(); // <-- add this extra call
-      }, 350); // Match your scroll animation duration
-    }, 100);
-  });
-}
+        this.centerActiveImage();
+        setTimeout(() => {
+          this.showTitle = true;
+          this.centerActiveImage();
+        }, 350); // Match scroll animation
+      }, 100);
+    }
+  }
 
   private shuffleArray(array: any[]): any[] {
     for (let i = array.length - 1; i > 0; i--) {
@@ -62,7 +73,7 @@ ngAfterViewInit(): void {
   }
 
   scrollGallery(direction: 'left' | 'right') {
-    this.showTitle = false; // Hide title while moving
+    this.showTitle = false;
     if (direction === 'left') {
       this.activeIndex--;
     } else if (direction === 'right') {
@@ -78,13 +89,13 @@ ngAfterViewInit(): void {
         this.activeIndex = 0;
         this.centerActiveImage(false);
       }
-      this.showTitle = true; // Show title after movement
-    }, 350); // Match your scroll animation duration
+      this.showTitle = true;
+    }, 350);
   }
 
   centerActiveImage(smooth = true) {
     const images = this.artImages.toArray();
-    if (!images[this.activeIndex + 1]) return; // +1 for the prepended image
+    if (!images[this.activeIndex + 1]) return; // +1 for prepended image
     const container = this.scrollContainer.nativeElement;
     const img = images[this.activeIndex + 1].nativeElement;
     const containerRect = container.getBoundingClientRect();
@@ -95,7 +106,7 @@ ngAfterViewInit(): void {
   }
 
   onHoverMainImage(index: number) {
-    this.isHoveringMainImage = (index === this.activeIndex);
+    this.isHoveringMainImage = index === this.activeIndex;
   }
 
   onLeaveMainImage() {
@@ -105,5 +116,4 @@ ngAfterViewInit(): void {
   goToArtworkDetail(folder: string) {
     this.router.navigate(['/artwork', folder]);
   }
-
 }

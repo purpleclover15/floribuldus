@@ -1,12 +1,13 @@
 <div class="gallery-wrapper position-relative">
   <button class="arrow left" (click)="scrollGallery('left')">&#8592;</button>
   <div class="scroll-container" #scrollContainer>
-    <!-- Prepend last image for infinite scroll illusion -->
+    <!-- Prepend last image -->
     <img
       *ngIf="artworks.length"
       #artImage
+      (load)="onImageLoad()"
       [class.active]="activeIndex === -1"
-      [ngClass]="activeIndex !==  -1 ? 'image-overlay' : 'main-image'"
+      [ngClass]="activeIndex !== -1 ? 'image-overlay' : 'main-image'"
       [src]="'assets/paintings/' + artworks[artworks.length - 1].folder + '/' + artworks[artworks.length - 1].images[0]"
       alt="Artwork"
     />
@@ -14,20 +15,22 @@
     <img
       *ngFor="let artwork of artworks; let i = index"
       #artImage
+      (load)="onImageLoad()"
       [class.active]="i === activeIndex"
-      [ngClass]="activeIndex !==  i ? 'image-overlay' : 'main-image'"
+      [ngClass]="activeIndex !== i ? 'image-overlay' : 'main-image'"
       [src]="'assets/paintings/' + artwork.folder + '/' + artwork.images[0]"
       alt="Artwork"
       (mouseenter)="onHoverMainImage(i)"
       (mouseleave)="onLeaveMainImage()"
       (click)="goToArtworkDetail(artwork.folder)"
     />
-    <!-- Append first image for infinite scroll illusion -->
+    <!-- Append first image -->
     <img
       *ngIf="artworks.length"
       #artImage
+      (load)="onImageLoad()"
       [class.active]="activeIndex === artworks.length"
-      [ngClass]="activeIndex !==  artworks.length ? 'image-overlay' : 'main-image'"
+      [ngClass]="activeIndex !== artworks.length ? 'image-overlay' : 'main-image'"
       [src]="'assets/paintings/' + artworks[0].folder + '/' + artworks[0].images[0]"
       alt="Artwork"
     />
