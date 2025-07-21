@@ -79,7 +79,7 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "outputPath": "dist/floribuldus",
-            "baseHref": "/floribuldus/",
+            "baseHref": "/",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": ["zone.js"],
