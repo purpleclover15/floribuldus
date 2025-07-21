@@ -9,8 +9,6 @@ body {
   background-color: #121212;
   font-family: 'CustomFont', sans-serif;
   color: #c6c6c6;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
 }
 
 html, body {
@@ -110,7 +108,6 @@ p {
   }
 }
 
-
 .responsive-video {
   position: relative;
   width: 100%;
@@ -154,7 +151,6 @@ p {
   }
 }
 
-
 @media (max-width: 767.98px) {
   /* Make gallery carousel area bigger on mobile */
   .gallery-wrapper {
@@ -189,46 +185,13 @@ p {
   }
 }
 
+/* --- Recommended navbar padding fix --- */
 @media (max-width: 767.98px) {
   .navbar {
     padding-top: 0.25rem !important;
     padding-bottom: 0.25rem !important;
-    padding-left: 0.5rem !important;
-    padding-right: 0.5rem !important;
-    min-height: 44px !important;
-  }
-  .navbar-brand {
-    font-size: 1.2rem !important;
-    padding-left: 0.25rem !important;
-    padding-right: 0.25rem !important;
-  }
-  .nav-link {
-    font-size: 1.05rem !important;
-    padding-top: 0.25rem !important;
-    padding-bottom: 0.25rem !important;
-    padding-left: 0.5rem !important;
-    padding-right: 0.5rem !important;
-  }
-  .navbar-toggler {
-    padding: 0.15rem 0.6rem !important;
-    font-size: 1rem !important;
-    line-height: 1 !important;
-    margin-left: 0.25rem !important;
-  }
-  .navbar-nav {
-    margin-top: 0.25rem !important;
-    margin-bottom: 0.25rem !important;
-  }
-}
-
-
-/* --- Responsive Navbar Sizing --- */
-@media (max-width: 767.98px) {
-  .navbar {
-    padding-top: 0.25rem !important;
-    padding-bottom: 0.25rem !important;
-    padding-left: 0.5rem !important;
-    padding-right: 0.5rem !important;
+    padding-left: 1.5rem !important;    /* Matches body padding */
+    padding-right: 1.5rem !important;   /* Matches body padding */
     min-height: 44px !important;
   }
   .navbar-brand {
@@ -263,4 +226,30 @@ section[id] {
   section[id] {
     scroll-margin-top: 56px; /* Change to your actual mobile navbar height */
   }
+}
+
+/* Make gallery section edge-to-edge */
+.gallery-full-bleed {
+  width: 100vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  background: transparent;
+}
+
+/* On mobile, let it flow naturally */
+@media (max-width: 767.98px) {
+  .gallery-full-bleed {
+    width: 100vw !important;
+    margin-left: 0 !important;
+    transform: none !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+/* Prevent unwanted horizontal scroll */
+body {
+  overflow-x: hidden;
 }

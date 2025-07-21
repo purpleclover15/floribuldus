@@ -1,5 +1,25 @@
 .carousel-inner {
-  height: 500px;
+  height: 700px !important;
+  max-height: 95vh;
+}
+
+@media (min-width: 1400px) {
+  .carousel-inner {
+    height: 700px !important;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .carousel-inner {
+    height: 450px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .carousel-inner {
+    height: 350px !important;
+    border-radius: 10px;
+  }
 }
 
 .carousel-item img {
@@ -9,7 +29,6 @@
   display: block;
   transition: transform 1s ease-in-out, opacity 1s ease-in-out;
   opacity: 1;
-  /* background removed */
 }
 
 .carousel-item.active img {
@@ -21,8 +40,34 @@ li::marker {
   font-size: 0;
 }
 
+.artwork-detail-padding {
+  padding-top: 3.5rem !important;
+}
 @media (max-width: 576px) {
-  .carousel-inner {
-    height: 200px !important;
+  .artwork-detail-padding {
+    padding-top: 1.8rem !important;
   }
+}
+
+.carousel-indicators li,
+.carousel-indicators [data-bs-target] {
+  width: 26px !important;       /* Length of bar */
+  height: 3px !important;       /* Height of bar */
+  border-radius: 2.5px !important; /* Rounded edges */
+  margin: 0 3px !important;
+  background-color: #fff;
+  opacity: 0.5;
+  border: none;
+  transition: all 0.2s;
+}
+
+.carousel-indicators .active {
+  width: 32px !important;       /* Slightly longer for active */
+  height: 3px !important;
+  opacity: 0.8;
+  background-color: #fff;
+}
+
+.carousel-indicators {
+  bottom: 12px;
 }
