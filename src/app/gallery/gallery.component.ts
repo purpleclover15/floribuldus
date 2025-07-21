@@ -38,19 +38,20 @@ export class GalleryComponent implements AfterViewInit {
     private router: Router // Add this
   ) {}
 
-  ngAfterViewInit(): void {
-    this.artworkService.getArtworks().subscribe((data) => {
-      this.artworks = this.shuffleArray(data);
-      this.activeIndex = 1;
-      this.cdr.detectChanges();
+ngAfterViewInit(): void {
+  this.artworkService.getArtworks().subscribe((data) => {
+    this.artworks = this.shuffleArray(data);
+    this.activeIndex = 1;
+    this.cdr.detectChanges();
+    setTimeout(() => {
+      this.centerActiveImage();
       setTimeout(() => {
-        this.centerActiveImage();
-        setTimeout(() => {
-          this.showTitle = true; // Show title after initial centering and animation
-        }, 350); // Match your scroll animation duration
-      }, 100);
-    });
-  }
+        this.showTitle = true; // Show title after initial centering and animation
+        this.centerActiveImage(); // <-- add this extra call
+      }, 350); // Match your scroll animation duration
+    }, 100);
+  });
+}
 
   private shuffleArray(array: any[]): any[] {
     for (let i = array.length - 1; i > 0; i--) {
