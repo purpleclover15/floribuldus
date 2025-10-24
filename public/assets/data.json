@@ -214,6 +214,34 @@
     }
   },
   {
+    "title": "Inflorire",
+    "folder": "Inflorire",
+    "images": [
+      "Main_PXL_20251022_102137597.RAW-01.COVER-EDIT.jpg"
+    ],
+    "info": {
+      "title": "Înflorire",
+      "price": "€2,800",
+      "description": "'Blooming'\nThe work evokes the delicate moment of early summer, when the garden becomes an intimate space filled with life and sensitivity.\nI imagined a vegetal wall adorned with purple wisteria, yet the focus is not on abundance, but on essence: the foliage dominates the composition—rich and vibrant—in nuanced shades of green and purple, like an organic tapestry.\n\nAt the top, a few wisteria flowers—painted in tones of mauve and violet—appear as rare and precious accents.\nTheir limited presence is intentional: the flowers become jewels, fragile treasures hidden within nature, symbols of ephemerality and refinement.\n\nThe work captures the subtle relationship between the fullness of the foliage and the delicacy of the flowers, speaking about beauty that does not shout, but reveals itself to those who look with attention.",
+      "availability": "Available",
+      "categories": [
+        "New Arrivals",
+        "Painting"
+      ],
+      "tag": "Flori Bulduș",
+      "share_links": [
+        "Facebook",
+        "LinkedIn",
+        "Pinterest"
+      ],
+      "additional_info": {
+        "author": "Flori Bulduș",
+        "dimensions": "150 x 200 cm",
+        "technique": "acrylic on canvas"
+      }
+    }
+  },
+  {
     "title": "Lilith",
     "folder": "Lilith",
     "images": [
@@ -271,6 +299,62 @@
       "additional_info": {
         "author": "Flori Bulduș",
         "dimensions": "80 x 100 cm",
+        "technique": "oil on canvas"
+      }
+    }
+  },
+  {
+    "title": "Noaptea de Sanzaiene",
+    "folder": "Noaptea de Sanzaiene",
+    "images": [
+      "MAIN_1000069093.jpg"
+    ],
+    "info": {
+      "title": "Noaptea de Sanziene",
+      "price": "€1,800",
+      "description": "'Night of the Sânziene'\nThe work captures the poetic tension of the Night of Sânziene—the sacred moment when the forest becomes a gateway to the unseen realm.\nIn the heart of a midsummer night, light fades, and the vibration of nature transforms into a secret ritual.\nDark tones of violet, green, and ochre blend into a dense, almost hypnotic atmosphere, suggesting the hidden forces of the place.\n\nThe pictorial space seems to pulse as if touched by invisible presences: the Iele—spirits of the forest—subtly insinuate themselves, affecting the viewer more through sensation than form.\nAt the top, a white translucent silhouette—perhaps a bird, or even the spirit of the forest itself—floats as a sign of the passage between worlds.\n\n'The Dance of the Iele' explores the fluid boundary between myth and reality, between fascination and unease.\nIt is an invitation to see the forest not as a landscape, but as a living, mysterious entity that calls to us, enchants us, and transforms us.",
+      "availability": "Available",
+      "categories": [
+        "New Arrivals",
+        "Painting"
+      ],
+      "tag": "Flori Bulduș",
+      "share_links": [
+        "Facebook",
+        "LinkedIn",
+        "Pinterest"
+      ],
+      "additional_info": {
+        "author": "Flori Bulduș",
+        "dimensions": "80 x 100 cm",
+        "technique": "oil on canvas"
+      }
+    }
+  },
+  {
+    "title": "Poiana Rotunda",
+    "folder": "Poiana Rotunda",
+    "images": [
+      "Main_PXL_20250921_102137597.RAW-01.COVER-EDIT.jpg"
+    ],
+    "info": {
+      "title": "Poiana Rotunda",
+      "price": "€1,500",
+      "description": "'Poiana Rotunda – Echoes from the Hoia Baciu Forest' The work captures the legendary mystery of the Hoia Baciu Forest in the liminal moment of dusk,\nwhen reality begins to unravel into the unknown.\nThe color palette—dominated by violet, blue, green, and pink \ncreates a dreamlike, almost spectral atmosphere, where light ceases to be merely a natural phenomenon and \nbecomes emotion itself.\nAt the center of the composition, the round glade becomes a space suspended between worlds.\nRings of mist slowly dissolve into the air, like ephemeral traces of an invisible presence.\nThey belong neither to nature nor to humankind—they seem to be the breath of a mysterious entity,\na sign of the paranormal aura that makes this forest a place steeped in myth.\nThe work explores the boundary between beauty and unease,\nbetween dream and legend, inviting the viewer to step into the unknown and feel the vibration of a hidden reality.",
+      "availability": "Available",
+      "categories": [
+        "New Arrivals",
+        "Painting"
+      ],
+      "tag": "Flori Bulduș",
+      "share_links": [
+        "Facebook",
+        "LinkedIn",
+        "Pinterest"
+      ],
+      "additional_info": {
+        "author": "Flori Bulduș",
+        "dimensions": "150 x 200 cm",
         "technique": "oil on canvas"
       }
     }

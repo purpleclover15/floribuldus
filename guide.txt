@@ -1,0 +1,13 @@
+- create folders
+	- create info json
+	- copy fotos and name them
+- run js script : C:\Programming\FloriBuldus\FloriBuldusArt\generate-artwork-data.js
+	- node .\generate-artwork-data.js
+	
+- deploy new version:
+
+git add .
+git commit -m "fi"
+git push origin main
+ng build --output-path=dist
+npx angular-cli-ghpages --dir=dist/browser --cname=floribuldus.ro
