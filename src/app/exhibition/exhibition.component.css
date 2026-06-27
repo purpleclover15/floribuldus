@@ -40,3 +40,32 @@ input[type="range"]::-moz-range-thumb {
     border-radius: 50%;
     background: #222;
 }
+
+/* enable scrolling inside modal */
+.modal-body {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* desktop fixed height modal */
+@media (min-width: 768px) {
+  .artwork-detail-padding {
+    height: calc(100vh - 70px);
+  }
+}
+
+/* mobile natural scrolling layout */
+@media (max-width: 767px) {
+  .artwork-detail-padding {
+    height: auto;
+    min-height: 100vh;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
+/* optional: remove modal edge clipping on mobile */
+.modal-dialog {
+  max-width: 100%;
+  margin: 0;
+}

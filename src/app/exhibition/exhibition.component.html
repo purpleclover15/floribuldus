@@ -1,65 +1,91 @@
-<div class="modal-body row h-100 px-2 px-md-4 py-3 artwork-detail-padding" style="height: calc(100vh - 70px);">
-  <!-- Left side: Carousel -->
+<div class="modal-body row px-2 px-md-4 py-3 artwork-detail-padding">
+
+  <!-- IMAGE -->
   <div
-    class="col-12 col-md-6 h-100 d-flex align-items-center justify-content-center mb-4 mb-md-0">
-    <div class="carousel-inner" style="height: 750px;">
-    <img
-            class="d-block w-100 h-100"
-            loading="eager"
-            [src]="fullImageUrl"
-            alt="Exhibition"
-            style="object-fit: contain; cursor: zoom-in;"
-            (click)="showFullImage(fullImageUrl)">
+    class="col-12 col-md-6 order-2 order-md-1 d-flex justify-content-center align-items-center mb-4 mb-md-0">
+
+    <div class="d-flex justify-content-center align-items-center w-100">
+
+      <img
+        [src]="fullImageUrl"
+        alt="Exhibition"
+        loading="eager"
+        (click)="showFullImage(fullImageUrl)"
+        style="
+          max-width: 100%;
+          max-height: 80vh;
+          height: auto;
+          width: auto;
+          object-fit: contain;
+          cursor: zoom-in;
+          display: block;
+          margin: 0 auto;
+        ">
+
     </div>
+
   </div>
 
-  <!-- Right side: Text -->
-  <div class="col-12 col-md-6 h-100 d-flex flex-column justify-content-center px-1 px-md-4 text-start">
+  <!-- TEXT / PLAYER -->
+  <div
+    class="col-12 col-md-6 order-1 order-md-2 d-flex flex-column justify-content-start px-1 px-md-4 text-start">
+
     <h1>Timpul Mitic (Mythic Time)</h1>
+
     <div class="artist-audio-card">
-    <br>
-    <br>
-    <h3>🎧 Asculta artista</h3>
-    <p>
+      <br><br>
+
+      <h3>🎧 Asculta artista</h3>
+
+      <p>
         Ascultă artistul povestind despre inspirația și povestea din spatele acestei expozitii.
-    </p>
+      </p>
 
-    <button (click)="audioService.play(audioTrackName)">
-
+      <button (click)="audioService.play(audioTrackName)">
         {{
-        audioService.isPlaying &&
-        audioService.currentFile === audioTrackName
-        ? '⏹ Stop'
-        : '▶ Listen'
+          audioService.isPlaying &&
+          audioService.currentFile === audioTrackName
+            ? '⏹ Stop'
+            : '▶ Listen'
         }}
+      </button>
 
-    </button>
-    <input
+      <input
         type="range"
         min="0"
         max="100"
         [value]="audioService.progress"
         (input)="audioService.seek($event)"
-    />
+      />
 
-    <div class="time">
+      <div class="time">
         {{ audioService.currentTime | number:'1.0-0' }} s /
         {{ audioService.duration | number:'1.0-0' }} s
+      </div>
+
     </div>
-    </div>
+
   </div>
 
-<!-- Fullscreen Image Modal -->
+</div>
+
+<!-- FULLSCREEN MODAL -->
 <div class="modal fade" id="fullImageModal" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-xl" (click)="closeFullImage()">
+
     <div class="modal-content bg-transparent border-0">
+
       <div class="modal-body p-0 text-center" style="cursor: zoom-out;">
+
         <img
           [src]="fullImageUrl"
           class="img-fluid"
           alt="Full View"
           style="max-height: 90vh; object-fit: contain; margin: auto;" />
+
       </div>
+
     </div>
+
   </div>
 </div>
