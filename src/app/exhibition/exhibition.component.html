@@ -1,0 +1,65 @@
+<div class="modal-body row h-100 px-2 px-md-4 py-3 artwork-detail-padding" style="height: calc(100vh - 70px);">
+  <!-- Left side: Carousel -->
+  <div
+    class="col-12 col-md-6 h-100 d-flex align-items-center justify-content-center mb-4 mb-md-0">
+    <div class="carousel-inner" style="height: 750px;">
+    <img
+            class="d-block w-100 h-100"
+            loading="eager"
+            [src]="fullImageUrl"
+            alt="Exhibition"
+            style="object-fit: contain; cursor: zoom-in;"
+            (click)="showFullImage(fullImageUrl)">
+    </div>
+  </div>
+
+  <!-- Right side: Text -->
+  <div class="col-12 col-md-6 h-100 d-flex flex-column justify-content-center px-1 px-md-4 text-start">
+    <h1>Timpul Mitic (Mythic Time)</h1>
+    <div class="artist-audio-card">
+    <br>
+    <br>
+    <h3>🎧 Asculta artista</h3>
+    <p>
+        Ascultă artistul povestind despre inspirația și povestea din spatele acestei expozitii.
+    </p>
+
+    <button (click)="audioService.play(audioTrackName)">
+
+        {{
+        audioService.isPlaying &&
+        audioService.currentFile === audioTrackName
+        ? '⏹ Stop'
+        : '▶ Listen'
+        }}
+
+    </button>
+    <input
+        type="range"
+        min="0"
+        max="100"
+        [value]="audioService.progress"
+        (input)="audioService.seek($event)"
+    />
+
+    <div class="time">
+        {{ audioService.currentTime | number:'1.0-0' }} s /
+        {{ audioService.duration | number:'1.0-0' }} s
+    </div>
+    </div>
+  </div>
+
+<!-- Fullscreen Image Modal -->
+<div class="modal fade" id="fullImageModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl" (click)="closeFullImage()">
+    <div class="modal-content bg-transparent border-0">
+      <div class="modal-body p-0 text-center" style="cursor: zoom-out;">
+        <img
+          [src]="fullImageUrl"
+          class="img-fluid"
+          alt="Full View"
+          style="max-height: 90vh; object-fit: contain; margin: auto;" />
+      </div>
+    </div>
+  </div>
+</div>
