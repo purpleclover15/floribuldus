@@ -60,18 +60,26 @@ export class ExhibitionComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id')!;
     this.exhibitionPath = `assets/exhibitions/${id}`;
 
-    // 🌍 1. read language from URL
     const lang = this.route.snapshot.queryParamMap.get('lang');
     if (lang === 'en' || lang === 'ro') {
       this.selectedLang = lang;
     }
 
-    // 📦 load data
-    this.http.get<Exhibition>(
-      `${this.exhibitionPath}/exhibition.json`
-    ).subscribe(data => {
-      this.exhibition = data;
-    });
+    this.http.get<Exhibition>(`${this.exhibitionPath}/exhibition.json`)
+      .subscribe(data => {
+
+        this.exhibition = data;
+
+        const file = this.exhibition.audio?.[this.selectedLang];
+
+        if (file) {
+          const fullPath = `${this.exhibitionPath}/${file}`;
+
+          setTimeout(() => {
+            this.audioService.play(fullPath);
+          }, 300);
+        }
+      });
   }
 
   image(path: string) {

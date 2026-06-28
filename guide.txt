@@ -17,7 +17,7 @@ to add a new exhibition go
 git add .
 git commit -m "fi"
 git push origin main
-ng build --output-path=dist
+npx ng build --output-path=dist
 npx angular-cli-ghpages --dir=dist/browser --cname=floribuldus.ro
 
 
