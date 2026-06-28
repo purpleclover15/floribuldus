@@ -61,4 +61,12 @@ export class AppComponent implements OnInit {
       if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, 100);
   }
+
+  closeNavbar() {
+    const navCollapse = document.getElementById('navbarNav');
+
+    if (navCollapse && navCollapse.classList.contains('show')) {
+      navCollapse.classList.remove('show');
+    }
+  }
 }

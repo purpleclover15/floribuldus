@@ -72,16 +72,17 @@
 
           <ul class="dropdown-menu dropdown-menu-dark text-center text-md-start">
 
-            <li *ngFor="let ex of exhibitions">
+          <li *ngFor="let ex of exhibitions">
 
-              <a class="dropdown-item"
-                [routerLink]="['/exhibitions', ex.id]">
+            <a class="dropdown-item"
+              [routerLink]="['/exhibitions', ex.id]"
+              (click)="closeNavbar()">
 
-                {{ ex.title }}
+              {{ ex.title }}
 
-              </a>
+            </a>
 
-            </li>
+          </li>
 
           </ul>
 
