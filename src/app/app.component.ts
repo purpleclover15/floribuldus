@@ -1,16 +1,36 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+
+export interface ExhibitionItem {
+  id: string;
+  title: string;
+}
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+
+  exhibitions: ExhibitionItem[] = [];
+
   lastScrollTop = 0;
   navbarVisible = true;
+
+  constructor(private http: HttpClient) {}
+
+  ngOnInit() {
+    this.http.get<ExhibitionItem[]>(
+      'assets/exhibitions/index.json'
+    ).subscribe(data => {
+      this.exhibitions = data;
+    });
+  }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
@@ -21,10 +41,8 @@ export class AppComponent {
     const upThreshold = 10;
 
     if (delta > downThreshold) {
-      // Scrolling down fast enough
       this.navbarVisible = false;
     } else if (delta < -upThreshold) {
-      // Scrolling up fast enough
       this.navbarVisible = true;
     }
 
@@ -32,11 +50,12 @@ export class AppComponent {
   }
 
   forceScroll(target: string) {
-    // Ensure mobile menu closes if open
     const navCollapse = document.getElementById('navbarNav');
+
     if (navCollapse && navCollapse.classList.contains('show')) {
       navCollapse.classList.remove('show');
     }
+
     setTimeout(() => {
       const el = document.getElementById(target + 'Section');
       if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });

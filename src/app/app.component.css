@@ -55,3 +55,17 @@
     padding-top: 46px;
   }
 }
+
+.dropdown-menu {
+  background-color: #111;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.dropdown-item {
+  color: #fff;
+}
+
+.dropdown-item:hover {
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+}

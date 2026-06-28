@@ -69,3 +69,82 @@ input[type="range"]::-moz-range-thumb {
   max-width: 100%;
   margin: 0;
 }
+
+.lang-toggle {
+  display: inline-flex;
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(8px);
+}
+
+.lang-btn {
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.25s ease;
+  user-select: none;
+
+  color: #aaa;
+  background: transparent;
+}
+
+/* active state */
+.btn-check:checked + .lang-btn {
+  background: #ffffff;
+  color: #111;
+  font-weight: 600;
+}
+
+/* hover */
+.lang-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.play-button {
+  font-size: 18px;
+  padding: 14px 34px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  /* softer dark instead of pure black */
+  background: linear-gradient(145deg, #2a2a2a, #111);
+
+  color: #fff;
+
+  cursor: pointer;
+  min-width: 170px;
+
+  /* subtle glow so it stands out */
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
+
+  transition: all 0.25s ease;
+}
+
+/* hover: more visible */
+.play-button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(145deg, #3a3a3a, #1a1a1a);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.6);
+}
+
+/* active click */
+.play-button:active {
+  transform: scale(0.98);
+}
+
+/* optional: subtle focus for accessibility */
+.play-button:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.4);
+  outline-offset: 3px;
+}
+
+.play-button-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 24px 0;
+}

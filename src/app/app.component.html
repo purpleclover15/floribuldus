@@ -1,60 +1,98 @@
-<nav class="navbar navbar-expand-md" [class.navbar-hidden]="!navbarVisible" style="padding-right: 3rem;">
+<nav class="navbar navbar-expand-md"
+     [class.navbar-hidden]="!navbarVisible"
+     style="padding-right: 3rem;">
+
   <div class="container-fluid d-flex justify-content-between align-items-center">
-    <!-- Brand -->
-    <a class="navbar-brand" [routerLink]="['/home']" [queryParams]="{ scrollTo: 'gallery' }" style="color: white !important">
+
+    <!-- BRAND -->
+    <a class="navbar-brand"
+       [routerLink]="['/home']"
+       [queryParams]="{ scrollTo: 'gallery' }"
+       style="color: white !important">
       Flori Bulduș
     </a>
 
-    <!-- Toggler for small screens -->
-    <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+    <!-- MOBILE TOGGLER -->
+    <button class="navbar-toggler bg-light"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <!-- Collapsible content -->
+    <!-- NAV ITEMS -->
     <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+
       <ul class="navbar-nav text-center">
+
+        <!-- GALLERY -->
         <li class="nav-item mx-3">
           <a class="nav-link"
-            [routerLink]="['/home']"
-            [queryParams]="{ scrollTo: 'gallery' }"
-            routerLinkActive="active"
-            [routerLinkActiveOptions]="{ exact: false }"
-            (click)="forceScroll('gallery')">
+             [routerLink]="['/home']"
+             [queryParams]="{ scrollTo: 'gallery' }"
+             routerLinkActive="active"
+             (click)="forceScroll('gallery')">
             Gallery
           </a>
         </li>
+
+        <!-- ABOUT -->
         <li class="nav-item mx-3">
           <a class="nav-link"
-            [routerLink]="['/home']"
-            [queryParams]="{ scrollTo: 'about' }"
-            routerLinkActive="active"
-            [routerLinkActiveOptions]="{ exact: false }"
-            (click)="forceScroll('about')">
+             [routerLink]="['/home']"
+             [queryParams]="{ scrollTo: 'about' }"
+             routerLinkActive="active"
+             (click)="forceScroll('about')">
             About
           </a>
         </li>
+
+        <!-- CONTACT -->
         <li class="nav-item mx-3">
           <a class="nav-link"
-            [routerLink]="['/home']"
-            [queryParams]="{ scrollTo: 'contact' }"
-            routerLinkActive="active"
-            [routerLinkActiveOptions]="{ exact: false }"
-            (click)="forceScroll('contact')">
+             [routerLink]="['/home']"
+             [queryParams]="{ scrollTo: 'contact' }"
+             routerLinkActive="active"
+             (click)="forceScroll('contact')">
             Contact
           </a>
         </li>
-        <li class="nav-item mx-3">
-          <a class="nav-link"
-            [routerLink]="['/exhibition']"
-            routerLinkActive="active"
-            [routerLinkActiveOptions]="{ exact: false }">
+
+        <!-- EXHIBITIONS DROPDOWN -->
+        <li class="nav-item dropdown mx-3">
+
+          <a class="nav-link dropdown-toggle"
+            href="#"
+            id="exhibitionDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false">
             Exhibition
           </a>
+
+          <ul class="dropdown-menu dropdown-menu-dark text-center text-md-start">
+
+            <li *ngFor="let ex of exhibitions">
+
+              <a class="dropdown-item"
+                [routerLink]="['/exhibitions', ex.id]">
+
+                {{ ex.title }}
+
+              </a>
+
+            </li>
+
+          </ul>
+
         </li>
+
       </ul>
     </div>
+
   </div>
 </nav>
+
 <main class="main-content">
   <router-outlet></router-outlet>
 </main>

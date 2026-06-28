@@ -4,6 +4,14 @@
 - run js script : C:\Programming\FloriBuldus\FloriBuldusArt\generate-artwork-data.js
 	- node .\generate-artwork-data.js
 	
+
+to add a new exhibition go 
+- add in exhibition indexjson the new exhibition
+- fill data in a new folder under exhibition analog to timpul_mitic
+
+
+
+
 - deploy new version:
 
 git add .
@@ -11,3 +19,6 @@ git commit -m "fi"
 git push origin main
 ng build --output-path=dist
 npx angular-cli-ghpages --dir=dist/browser --cname=floribuldus.ro
+
+
+

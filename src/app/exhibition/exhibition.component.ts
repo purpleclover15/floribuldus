@@ -1,50 +1,123 @@
-import { ChangeDetectorRef, Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { ArtworkService } from '../services/artwork.service';
-import { AudioService } from '../audio-service/audio-service.component';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { AudioService } from '../audio-service/audio-service.component';
 
 declare var bootstrap: any;
 
+export interface Exhibition {
+  title: string;
+  exhibitionCover: string;
+
+  audio: {
+    en?: string;
+    ro?: string;
+  };
+
+  artist: string;
+}
+
 @Component({
   selector: 'app-exhibition',
-  imports: [CommonModule],
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   templateUrl: './exhibition.component.html',
   styleUrl: './exhibition.component.css'
 })
-export class ExhibitionComponent {
-  fullImageUrl : string = "assets/exhibition/Main_Timpul_Mitic.png"
-  audioTrackName : string = 'Flori_Buldus_Timpul_Mitic[RO].mp3';
+export class ExhibitionComponent implements OnInit {
+
+  selectedLang: 'en' | 'ro' = 'en';
+
+  exhibition?: Exhibition;
+
+  fullImageUrl = '';
+  exhibitionPath = '';
+
+  audioText = {
+    en: {
+      title: '🎧 Listen to the artist',
+      description:
+        'Listen to the artist talk about the inspiration and story behind this exhibition.'
+    },
+    ro: {
+      title: '🎧 Ascultă povestea expoziției',
+      description:
+        'Ascultă artistul povestind despre inspirația și povestea din spatele acestei expoziții.'
+    }
+  };
 
   constructor(
-    private artworkService: ArtworkService,
-    private cdr: ChangeDetectorRef,
+    private route: ActivatedRoute,
+    private router: Router,
+    private http: HttpClient,
     public audioService: AudioService
   ) {}
 
-  showFullImage(imageUrl: string) {
-    this.fullImageUrl = imageUrl;
-    this.cdr.detectChanges(); // ensure Angular updates modal
-    const modalElement = document.getElementById('fullImageModal');
-    if (modalElement) {
-      const modal = bootstrap.Modal.getOrCreateInstance(modalElement);
-      modal.show();
+  ngOnInit() {
+
+    const id = this.route.snapshot.paramMap.get('id')!;
+    this.exhibitionPath = `assets/exhibitions/${id}`;
+
+    // 🌍 1. read language from URL
+    const lang = this.route.snapshot.queryParamMap.get('lang');
+    if (lang === 'en' || lang === 'ro') {
+      this.selectedLang = lang;
     }
+
+    // 📦 load data
+    this.http.get<Exhibition>(
+      `${this.exhibitionPath}/exhibition.json`
+    ).subscribe(data => {
+      this.exhibition = data;
+    });
+  }
+
+  image(path: string) {
+    return `${this.exhibitionPath}/${path}`;
+  }
+
+  // 🎧 play audio
+  play() {
+    const file = this.exhibition?.audio?.[this.selectedLang];
+
+    if (!file) return;
+
+    this.audioService.play(
+      `${this.exhibitionPath}/${file}`
+    );
+  }
+
+  // 🌍 language switch (URL synced)
+  onLangChange(lang: 'en' | 'ro') {
+
+    this.selectedLang = lang;
+
+    // stop + reset audio
+    this.audioService.reset();
+
+    // update URL without reload
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: { lang },
+      queryParamsHandling: 'merge'
+    });
+  }
+
+  showFullImage(path: string) {
+    this.fullImageUrl = this.image(path);
+
+    const modal = bootstrap.Modal.getOrCreateInstance(
+      document.getElementById('fullImageModal')
+    );
+
+    modal.show();
   }
 
   closeFullImage() {
-    const modalElement = document.getElementById('fullImageModal');
-    if (modalElement) {
-      const modal = bootstrap.Modal.getInstance(modalElement);
-      modal?.hide();
-    }
-  }
-
-  playEnglish() {
-    this.audioService.play('Flori_Buldus_Timpul_Mitic[EN].mp3');
-  }
-
-  playRomanian() {
-    this.audioService.play('Flori_Buldus_Timpul_Mitic[RO].mp3');
+    bootstrap.Modal
+      .getInstance(document.getElementById('fullImageModal'))
+      ?.hide();
   }
 }

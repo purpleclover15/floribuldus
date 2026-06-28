@@ -1,92 +1,82 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AudioService {
 
-  audio = new Audio();
+  private audio = new Audio();
 
-  progress = 0;
-  currentTime = 0;
-  duration = 0;
+  private isPlayingSubject = new BehaviorSubject<boolean>(false);
+  isPlaying$ = this.isPlayingSubject.asObservable();
 
-  isPlaying = false;
-  currentFile = '';
+  private currentFileSubject = new BehaviorSubject<string | null>(null);
+  currentFile$ = this.currentFileSubject.asObservable();
+
+  private progressSubject = new BehaviorSubject<number>(0);
+  progress$ = this.progressSubject.asObservable();
+
+  private currentTimeSubject = new BehaviorSubject<number>(0);
+  currentTime$ = this.currentTimeSubject.asObservable();
+
+  private durationSubject = new BehaviorSubject<number>(0);
+  duration$ = this.durationSubject.asObservable();
 
   constructor() {
+    this.audio.addEventListener('timeupdate', () => {
+      this.progressSubject.next(
+        (this.audio.currentTime / this.audio.duration) * 100 || 0
+      );
+
+      this.currentTimeSubject.next(this.audio.currentTime);
+    });
+
+    this.audio.addEventListener('loadedmetadata', () => {
+      this.durationSubject.next(this.audio.duration);
+    });
 
     this.audio.addEventListener('play', () => {
-      this.isPlaying = true;
+      this.isPlayingSubject.next(true);
     });
 
     this.audio.addEventListener('pause', () => {
-      this.isPlaying = false;
-    });
-
-    this.audio.addEventListener('ended', () => {
-      this.isPlaying = false;
-      this.progress = 0;
-      this.currentTime = 0;
-    });
-
-    this.audio.addEventListener('timeupdate', () => {
-      this.currentTime = this.audio.currentTime;
-      this.duration = this.audio.duration || 0;
-
-      if (this.duration > 0) {
-        this.progress = (this.currentTime / this.duration) * 100;
-      }
+      this.isPlayingSubject.next(false);
     });
   }
 
   play(file: string) {
 
-    // Clicking the currently playing file stops it.
-    if (this.isPlaying && this.currentFile === file) {
-      this.stop();
+    // toggle pause if same file
+    if (this.currentFileSubject.value === file && !this.audio.paused) {
+      this.audio.pause();
       return;
     }
 
-    this.currentFile = file;
-
-    this.audio.pause();
-    this.audio.src = `assets/audio/${file}`;
-    this.audio.load();
-
-    console.log(this.audio.src );
+    this.audio.src = file;
+    this.currentFileSubject.next(file);
 
     this.audio.play();
   }
 
-  stop() {
+  pause() {
     this.audio.pause();
-    this.audio.currentTime = 0;
-
-    this.isPlaying = false;
-    this.progress = 0;
-    this.currentTime = 0;
-  }
-
-  formatTime(seconds: number): string {
-
-    if (!seconds || isNaN(seconds))
-      return '0:00';
-
-    const mins = Math.floor(seconds / 60);
-    const secs = Math.floor(seconds % 60);
-
-    return `${mins}:${secs.toString().padStart(2, '0')}`;
   }
 
   seek(event: Event) {
-    const target = event.target as HTMLInputElement;
+    const input = event.target as HTMLInputElement;
+    const value = Number(input.value);
 
-    const value = Number(target.value);
+    this.audio.currentTime =
+      (value / 100) * this.audio.duration;
+  }
 
-    if (this.duration > 0) {
-      this.audio.currentTime = (value / 100) * this.duration;
-      this.progress = value;
-    }
+  reset() {
+    this.audio.pause();
+    this.audio.currentTime = 0;
+
+    this.isPlayingSubject.next(false);
+    this.progressSubject.next(0);
+    this.currentTimeSubject.next(0);
   }
 }
